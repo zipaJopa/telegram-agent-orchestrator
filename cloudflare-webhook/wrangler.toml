@@ -1,0 +1,15 @@
+name = "pavle-telegram-webhook"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Free tier: 100,000 requests/day
+# Route: bot.yourbow.workers.dev or custom domain
+
+[triggers]
+crons = []
+
+[env.production]
+name = "pavle-telegram-webhook"
+
+# Secrets (set via: wrangler secret put SECRET_TOKEN)
+# - SECRET_TOKEN: Shared secret with PCT-110

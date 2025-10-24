@@ -1,0 +1,33 @@
+services:
+  telegram-orchestrator:
+    build: .
+    container_name: pavle-telegram-orchestrator
+    restart: unless-stopped
+
+    ports:
+      - "8282:8000"  # Expose on PCT-110:8282
+
+    environment:
+      - TELEGRAM_TOKEN=8408316661:AAFUByKeL_QLQaV3_zUEB63BMY11tYPtsXE
+      - SECRET_TOKEN=${SECRET_TOKEN:-CHANGE_ME_IN_PRODUCTION}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+
+    volumes:
+      # Persistent data
+      - ./data:/app/data
+
+      # Workspace for coding tasks
+      - ./workspace:/workspace
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
