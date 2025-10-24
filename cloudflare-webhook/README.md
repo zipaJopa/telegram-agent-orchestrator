@@ -23,7 +23,7 @@ wrangler deploy
 ## Set Telegram Webhook
 
 ```bash
-TOKEN="8408316661:AAFUByKeL_QLQaV3_zUEB63BMY11tYPtsXE"
+TOKEN="your_telegram_bot_token"  # From @BotFather
 WEBHOOK_URL="https://pavle-telegram-webhook.yourbow.workers.dev/webhook"
 
 curl -X POST "https://api.telegram.org/bot${TOKEN}/setWebhook" \

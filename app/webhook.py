@@ -18,7 +18,9 @@ model_router = ModelRouter()
 openrouter = OpenRouterClient()
 
 # Config
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "8408316661:AAFUByKeL_QLQaV3_zUEB63BMY11tYPtsXE")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+if not TELEGRAM_TOKEN:
+    raise ValueError("TELEGRAM_TOKEN environment variable must be set")
 SECRET_TOKEN = os.getenv("SECRET_TOKEN", "CHANGE_ME_IN_PRODUCTION")
 
 
