@@ -1,15 +1,8 @@
 name = "pavle-telegram-webhook"
 main = "worker.js"
 compatibility_date = "2025-01-01"
-
-# Free tier: 100,000 requests/day
-# Route: bot.yourbow.workers.dev or custom domain
-
-[triggers]
-crons = []
+compatibility_flags = ["nodejs_compat"]
 
 [env.production]
 name = "pavle-telegram-webhook"
-
-# Secrets (set via: wrangler secret put SECRET_TOKEN)
-# - SECRET_TOKEN: Shared secret with PCT-110
+route = { pattern = "bot.yourbow.workers.dev/webhook", zone_name = "yourbow.workers.dev" }

@@ -1,0 +1,10 @@
+{
+  "name": "pavle-telegram-webhook",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker webhook for Telegram bot",
+  "main": "worker.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  }
+}
